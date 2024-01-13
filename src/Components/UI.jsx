@@ -4,12 +4,13 @@ import axios from 'axios';
 import InputBox from './InputBox';
 import WeatherDisplay from './WeatherDisplay';
 import speakerIcon from '../Images/pngwing.com.png'
+import { useSpeechSynthesis } from 'react-speech-kit';
 const UI = () => {
   let [cityName, updateCityName] = useState('');
   let [weatherData, updateWeatherData] = useState(null);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [spokenText, setSpokenText] = useState('');
-
+  const {speak} = useSpeechSynthesis();
   const submit = () => {
     Api();
   };
@@ -32,13 +33,7 @@ const UI = () => {
   };
 
   const speakTemperature = () => {
-    if ('speechSynthesis' in window) {
-      const synthesis = window.speechSynthesis;
-      const utterance = new SpeechSynthesisUtterance(spokenText);
-      synthesis.speak(utterance);
-    } else {
-      console.error('Speech synthesis not supported');
-    }
+   speak({text:spokenText})
   };
 
   const currentFormattedDate = () => {
