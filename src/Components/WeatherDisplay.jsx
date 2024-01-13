@@ -4,16 +4,20 @@ import weathericon from '../Images/weather-app.png';
 import cityicon from '../Images/cityscape.png';
 import humidity from '../Images/air.png';
 import windicon from '../Images/wind.png';
-
-const WeatherDisplay = ({ cityName, icons, weather, temp, feellike, humi, wind, currentFormattedDate, currentFormattedTime }) => {
+import speakerIcon from '../Images/pngwing.com.png'
+const WeatherDisplay = ({ cityName, icons, weather, temp, feellike, humi, wind, currentFormattedDate, currentFormattedTime, speakTemperature }) => {
   return (
     <div className="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4">
       <div className="card border-danger mb-3">
         <div className="card-header text-center">
           <h2>
             Current weather
-            <img src={weathericon} style={{ height: '40px', width: '40px' }} alt="weather icon" />
+            <img src={weathericon} style={{ height: '40px', width: '40px' }} alt="weather icon" /> 
+            <button onClick={speakTemperature} className="speaker-button btn btn-primary" style={{  marginLeft:"10px",width:"50px",height:"50px",borderRadius:"60px"}}>
+              <img style={{width:"35px",height:"35px",marginLeft:"-17px",marginTop:"-5px"}} src={speakerIcon} alt="" />
+            </button>
           </h2>
+          
         </div>
         <div className="card-body">
           <div className="bg-opacity" style={{ height: "60px", width: "90%" }}>

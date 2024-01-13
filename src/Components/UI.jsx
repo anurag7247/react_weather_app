@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import InputBox from './InputBox';
 import WeatherDisplay from './WeatherDisplay';
-import speakerIcon from '../Images/pngwing.com.png'
+
 import { useSpeechSynthesis } from 'react-speech-kit';
 const UI = () => {
   let [cityName, updateCityName] = useState('');
@@ -71,10 +71,11 @@ const UI = () => {
                 wind={weatherData.wind}
                 currentFormattedDate={currentFormattedDate}
                 currentFormattedTime={currentFormattedTime}
+                speakTemperature={speakTemperature}
               />
-              <button onClick={speakTemperature} className="speaker-button btn btn-danger" style={{width:"50px",height:"50px",borderRadius:"60px"}}>
+              {/* <button  className="speaker-button btn btn-danger" style={{width:"50px",height:"50px",borderRadius:"60px"}}>
                 <img style={{width:"35px",height:"35px", marginLeft:"-17.5px", marginTop:"-5px"}} src={speakerIcon} alt="" />
-              </button>
+              </button> */}
             </>
           )}
         </div>
