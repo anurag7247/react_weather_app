@@ -18,7 +18,7 @@ const UI = () => {
   const Api = () => {
     axios.get(`https://api.weatherapi.com/v1/current.json?key=d384dff0c77c4b33963131810241001&q=${cityName}/`).then((response) => {
       const data = response.data;
-      const spokenText = `The temperature in ${cityName} is ${data.current.temp_c} degrees Celsius jay shree raam.`;
+      const spokenText = `The temperature in ${cityName} is ${data.current.temp_c} degrees Celsius jay shreee raam.`;
       setSpokenText(spokenText); 
       updateWeatherData({
         cityName: cityName,
